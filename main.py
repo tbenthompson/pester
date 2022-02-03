@@ -15,9 +15,9 @@ import multiprocessing
 
 ## Configuration!
 debug = False
-quick_filename = "~/.pester.txt"
+quick_filename = os.path.expanduser("~/.pester.txt")
 quick_interval = 60 * 8  # in seconds
-slow_directory = "~/obsidian/tbent/weekly/"
+slow_directory = os.path.expanduser("~/obsidian/tbent/weekly/")
 slow_interval = 60 * 60
 min_words = 15
 # The get_slow_filename function can be used for more complicated logic for
@@ -27,7 +27,7 @@ def get_slow_filename():
     return os.path.join(slow_directory, f"week-{last_sunday}.md")
 
 # Handy debugging configuration that makes things happen fast!
-debug = True
+# debug = True
 if debug:
     quick_filename = "./debug.txt"
     quick_interval = 15
@@ -83,7 +83,8 @@ class Window:
         if self.quick:
             # append to quick file.
             logger.info(f"writing to {quick_filename}")
-            with open(quick_filename, "a+") as f:
+            mode = "a+" if os.path.exists(quick_filename) else "w+"
+            with open(quick_filename, mode) as f:
                 f.write(f"{get_full_timestamp()} contents={txt}")
         else:
             # prepend to slow weekly file.
@@ -200,6 +201,8 @@ class Pester(rumps.App):
 
 def main():
     logger.info("launching menu bar app")
+    logger.info(f'target quick filename {quick_filename}')
+    logger.info(f'target slow filename {get_slow_filename()}')
     Pester().run()
 
 
