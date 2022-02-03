@@ -1,0 +1,10 @@
+name: pester
+channels:
+  - conda-forge
+dependencies:
+  - tk
+  - py2app
+  - pip
+  - pip:
+    - screeninfo
+    - git+https://github.com/jaredks/rumps.git
