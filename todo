@@ -1,0 +1,16 @@
+done:
+- ~~focus txt box, type, hit enter, record into md file or text file. 
+- ~~open a large window on all screens. 
+- ~~ask a more extended question every hour
+- ~~ask a quick one letter question very often.
+- ~~create a mac menu bar icon using rumps. 
+- ~~prepend timestamps
+- ~~figure out which weekly file should currently be used. identify the most recent sunday.
+- ~~launch process in a thread? i don't think so.
+- ~~run a timer to check in every 10/60 minutes.
+- ~~need to skip the first timer run
+
+todo:
+- start up on login. https://support.apple.com/guide/mac-help/open-items-automatically-when-you-log-in-mh15189/mac 
+- make an app with py2app
+- another handy feature would be an alert on every 30 minutes for virtual co-working.
